@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>コース選択 - WR比較</title>
+    <title>比較するコース選択</title>
     <link rel="stylesheet" href="/static/css/compare_select.css">
 </head>
 
@@ -21,11 +21,11 @@
     <table>
         <thead>
             <tr>
-                <th>コース名</th>
-                <th>現WR</th>
+                <th>コース</th>
+                <th>WR</th>
                 <th>プレイヤー</th>
                 <th>日付</th>
-                <th>比較へ</th>
+                <th>比較</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@
                 <td>{{ r.time }}</td>
                 <td>{{ r.player }}</td>
                 <td>{{ r.date }}</td>
-                <td><a href="/compare/{{ r.course | urlencode }}">比較</a></td>
+                <td><a href="/compare/{{ r.course | urlencode }}">選択</a></td>
             </tr>
             {% endfor %}
         </tbody>

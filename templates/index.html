@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>MKWorld WR Viewer</title>
+    <title>マリオカートワールド WR一覧</title>
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
@@ -51,7 +51,7 @@
         <div class="ranking-box">
             <h2>プレイヤー別WR保持数ランキング</h2>
             <table>
-                <tr><th>Player</th><th>Nation</th><th>WR Count</th></tr>
+                <tr><th>プレイヤー</th><th>国</th><th>WR数</th></tr>
                 {% for p in player_rankings %}
                 <tr>
                     <td>{{ p.player }}</td>
@@ -64,7 +64,7 @@
         <div class="ranking-box">
             <h2>国別WR保持数ランキング</h2>
             <table>
-                <tr><th>Nation</th><th>WR Count</th></tr>
+                <tr><th>国</th><th>WR数</th></tr>
                 {% for nation, count in nation_rankings %}
                 <tr>
                     <td>{{ nation }}</td>
