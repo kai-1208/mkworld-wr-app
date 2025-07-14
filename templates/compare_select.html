@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>コース選択 - WR比較</title>
+    <link rel="stylesheet" href="/static/css/compare_select.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">WR一覧</a></li>
+            <li><a href="/filter">フィルタ</a></li>
+            <li><a href="/compare">比較</a></li>
+        </ul>
+    </nav>
+
+    <h1>比較したいコースを選択</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>コース名</th>
+                <th>現WR</th>
+                <th>プレイヤー</th>
+                <th>日付</th>
+                <th>比較へ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in records %}
+            <tr>
+                <td>{{ r.course }}</td>
+                <td>{{ r.time }}</td>
+                <td>{{ r.player }}</td>
+                <td>{{ r.date }}</td>
+                <td><a href="/compare/{{ r.course | urlencode }}">比較</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

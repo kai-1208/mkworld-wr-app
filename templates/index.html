@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>MKWorld WR Viewer</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">WR一覧</a></li>
+            <li><a href="/filter">フィルタ</a></li>
+            <li><a href="/compare">比較</a></li>
+        </ul>
+    </nav>
+
+    <h1>マリオカートワールド タイムアタック WR</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>コース</th><th>タイム</th><th>プレイヤー</th><th>国</th><th>日付</th>
+            <th>キャラ</th><th>マシン</th>
+            <th>Lap1</th><th>Lap2</th><th>Lap3</th>
+            <th>コイン</th><th>キノコ</th>
+            <th>動画</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for r in records %}
+            <tr>
+                <td><a href="/course/{{ r.course | urlencode }}">{{ r.course }}</a></td>
+                <td>{{ r.time }}</td>
+                <td>{{ r.player }}</td>
+                <td>{{ r.nation }}</td>
+                <td>{{ r.date }}</td>
+                <td>{{ r.character }}</td>
+                <td>{{ r.vehicle }}</td>
+                <td>{{ r.lap1 }}</td>
+                <td>{{ r.lap2 }}</td>
+                <td>{{ r.lap3 }}</td>
+                <td>{{ r.coins }}</td>
+                <td>{{ r.mushrooms }}</td>
+                <td><a href="{{ r.yt_url }}" target="_blank">YouTube</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="ranking-container">
+        <div class="ranking-box">
+            <h2>プレイヤー別WR保持数ランキング</h2>
+            <table>
+                <tr><th>Player</th><th>Nation</th><th>WR Count</th></tr>
+                {% for p in player_rankings %}
+                <tr>
+                    <td>{{ p.player }}</td>
+                    <td>{{ p.nation }}</td>
+                    <td>{{ p.wr_count }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="ranking-box">
+            <h2>国別WR保持数ランキング</h2>
+            <table>
+                <tr><th>Nation</th><th>WR Count</th></tr>
+                {% for nation, count in nation_rankings %}
+                <tr>
+                    <td>{{ nation }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
