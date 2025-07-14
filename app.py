@@ -282,3 +282,7 @@ def compare_course(course_name):
         return error_msg, 404
 
     return render_template("compare_course.html", course_name=decoded_name, lap_columns=lap_columns, history=history)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10070, debug=True)
